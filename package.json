@@ -5,9 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:portfolio-dr-anh": "node dist/portfolio-dr-anh/server/server.mjs"
+    "serve:ssr:portfolio-dr-anh": "node dist/portfolio-dr-anh/server/server.mjs",
+    "deploy": "ng build --configuration github-pages --base-href='/tram-anh-portfolio/' && npx angular-cli-ghpages --dir=dist/portfolio-dr-anh/browser"
   },
   "prettier": {
     "overrides": [
@@ -40,6 +42,7 @@
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
+    "angular-cli-ghpages": "^2.0.3",
     "jasmine-core": "~5.8.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
