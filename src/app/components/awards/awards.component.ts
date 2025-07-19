@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class AwardsComponent {
   awards = [
     {
-      year: '2020-2024',
+      year: '2020',
       title: 'NTU Research Scholarship',
       organization: 'Nanyang Technological University',
       description: 'Full scholarship covering tuition and living expenses for Ph.D. studies',
