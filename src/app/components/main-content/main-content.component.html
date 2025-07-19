@@ -1,0 +1,55 @@
+<div class="main-content-container">
+  <div class="content-section" [class.active]="activeSection() === 'home'">
+    <div class="section-content">
+      <app-home></app-home>
+    </div>
+  </div>
+
+  <div class="content-section" [class.active]="activeSection() === 'about'">
+    <div class="section-content">
+      <app-about></app-about>
+    </div>
+  </div>
+
+  <div class="content-section" [class.active]="activeSection() === 'education'">
+    <div class="section-content">
+      <app-education></app-education>
+    </div>
+  </div>
+
+  <div class="content-section" [class.active]="activeSection() === 'research'">
+    <div class="section-content">
+      <app-research></app-research>
+    </div>
+  </div>
+
+  <div class="content-section" [class.active]="activeSection() === 'publications'">
+    <div class="section-content">
+      <app-publications></app-publications>
+    </div>
+  </div>
+
+  <div class="content-section" [class.active]="activeSection() === 'skills'">
+    <div class="section-content">
+      <app-skills></app-skills>
+    </div>
+  </div>
+
+  <div class="content-section" [class.active]="activeSection() === 'awards'">
+    <div class="section-content">
+      <app-awards></app-awards>
+    </div>
+  </div>
+
+  <div class="content-section" [class.active]="activeSection() === 'conferences'">
+    <div class="section-content">
+      <app-conferences></app-conferences>
+    </div>
+  </div>
+
+  <div class="content-section" [class.active]="activeSection() === 'contact'">
+    <div class="section-content">
+      <app-contact></app-contact>
+    </div>
+  </div>
+</div>

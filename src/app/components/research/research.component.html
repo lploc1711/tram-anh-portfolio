@@ -1,0 +1,52 @@
+<section id="research" class="section-wrapper">
+  <div class="section-header">
+    <h2>🔬 Research & Experience</h2>
+    <div class="header-decoration"></div>
+  </div>
+  <div class="section-content">
+    <div class="experience-section">
+      <h3>Research Experience</h3>
+      <div class="experience-list">
+        <div class="experience-item" *ngFor="let exp of researchExperiences">
+          <div class="experience-header">
+            <h4>{{ exp.title }}</h4>
+            <span class="period">{{ exp.period }}</span>
+          </div>
+          <p class="location">📍 {{ exp.location }}</p>
+          <p class="description">{{ exp.description }}</p>
+
+          <div class="highlights" *ngIf="exp.highlights">
+            <h5>Key Achievements:</h5>
+            <ul>
+              <li *ngFor="let highlight of exp.highlights">{{ highlight }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-areas-section">
+      <h3>Research Areas</h3>
+      <div class="research-grid">
+        <div class="research-item" *ngFor="let area of researchAreas; let i = index">
+          <div class="research-icon">
+            <span class="icon-emoji">{{ area.icon }}</span>
+          </div>
+          <div class="research-content">
+            <h4>{{ area.area }}</h4>
+            <p>{{ area.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="techniques-section">
+      <h3>Research Techniques & Methods</h3>
+      <div class="techniques-grid">
+        <div class="technique-tag" *ngFor="let technique of techniques">
+          {{ technique }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

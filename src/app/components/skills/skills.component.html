@@ -1,0 +1,26 @@
+<section id="skills" class="skills-container">
+  <div class="section-header">
+    <h1>💡 Skills & Expertise</h1>
+    <p class="section-description">Technical competencies across food science, molecular biology, and analytical chemistry</p>
+  </div>
+
+  <div class="skills-grid">
+    <article *ngFor="let category of skillCategories; trackBy: trackByTitle" class="skill-category">
+      <header class="category-header">
+        <div class="category-icon" [attr.aria-label]="category.title + ' icon'">
+          {{ category.icon }}
+        </div>
+        <h3 class="category-title">{{ category.title }}</h3>
+      </header>
+
+      <div class="skills-list" role="list">
+        <span *ngFor="let skill of category.skills; trackBy: trackBySkill"
+              class="skill-tag"
+              role="listitem"
+              [attr.title]="skill">
+          {{ skill }}
+        </span>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,170 @@
+.section-wrapper {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  color: var(--deep-green);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.header-decoration {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--lime-accent) 100%);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.experience-section {
+  margin-bottom: 3rem;
+}
+
+.experience-section h3, .research-areas-section h3 {
+  color: var(--primary-green);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--primary-green);
+  padding-left: 1rem;
+}
+
+.experience-list {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.experience-item {
+  background: var(--soft-white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.08);
+  border: 1px solid var(--light-green-bg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid var(--primary-green);
+}
+
+.experience-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.15);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.experience-header h4 {
+  color: var(--deep-green);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.experience-header .period {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--deep-green) 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.location {
+  color: var(--primary-green);
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+}
+
+.description {
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.research-item {
+  display: flex;
+  gap: 1.5rem;
+  background: var(--soft-white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.08);
+  border: 1px solid var(--light-green-bg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid var(--primary-green);
+}
+
+.research-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.15);
+}
+
+.research-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--main-color) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.research-content h3 {
+  color: var(--main-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.research-content p {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// remove research-icon in mobile view
+@media (max-width: 768px) {
+  .research-icon {
+    display: none;
+  }
+
+  .experience-item {
+    padding: 1rem;
+  }
+}

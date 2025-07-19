@@ -1,0 +1,20 @@
+<div class="app-container">
+  <!-- Mobile menu toggle button -->
+  <button class="mobile-menu-toggle" #mobileToggle (click)="sidebar.toggleMobileMenu()">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-overlay" #overlay
+       [class.active]="sidebar.isMobileMenuOpen"
+       (click)="sidebar.closeMobileMenu()">
+  </div>
+
+  <app-sidebar #sidebar></app-sidebar>
+
+  <main class="main-content">
+    <app-main-content></app-main-content>
+  </main>
+</div>

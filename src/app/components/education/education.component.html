@@ -1,0 +1,33 @@
+<section id="education" class="section-wrapper">
+  <div class="section-header">
+    <h2>Education</h2>
+    <div class="header-decoration"></div>
+  </div>
+  <div class="section-content">
+    <div class="education-timeline">
+      <div class="education-item" *ngFor="let edu of education; let i = index">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line" *ngIf="i < education.length - 1"></div>
+        </div>
+        <div class="education-content">
+          <div class="education-card">
+            <div class="education-header">
+              <h3 class="degree">{{ edu.degree }}</h3>
+              <span class="period">{{ edu.period }}</span>
+            </div>
+            <div class="institution-info">
+              <h4 class="institution">{{ edu.institution }}</h4>
+              <p class="location">📍 {{ edu.location }}</p>
+              <p class="additional-info" *ngIf="edu.additionalInfo">{{ edu.additionalInfo }}</p>
+            </div>
+            <div class="thesis-info">
+              <strong>Thesis:</strong>
+              <p class="thesis">{{ edu.thesis }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

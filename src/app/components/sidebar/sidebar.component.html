@@ -1,0 +1,38 @@
+<aside class="sidebar" [class.mobile-open]="isMobileMenuOpen">
+  <div class="profile-section">
+    <img [src]="profileData.imageUrl" [alt]="profileData.name" />
+    <h1>{{ profileData.name }}</h1>
+    <div class="text-section">
+
+      <strong>{{ profileData.title }}</strong><br>
+
+
+      @for (item of profileData.subtitle; track $index) {
+         {{item}} <br>
+      }
+
+    </div>
+
+  </div>
+
+  <nav class="navigation">
+    <button
+      *ngFor="let item of navigationItems"
+      (click)="onSectionClick(item.section)"
+      [class.active]="isActive(item.section)"
+      class="nav-button">
+      {{ item.label }}
+    </button>
+  </nav>
+
+  <div class="contact-info">
+    <div class="contact-item">
+      <span class="contact-label">Email:</span>
+      <span class="contact-value">anh.nguyen&#64;ntu.edu.sg</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">Location:</span>
+      <span class="contact-value">Stockholm, Sweden, 14152, Sweden</span>
+    </div>
+  </div>
+</aside>

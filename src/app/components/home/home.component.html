@@ -1,0 +1,39 @@
+<div class="home-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="full-name">{{ profileData.fullName }}</h1>
+        <h2 class="professional-title">{{ profileData.title }}</h2>
+        <p class="introduction">{{ profileData.introduction }}</p>
+
+        <div class="contact-links">
+          <a [href]="'mailto:' + profileData.email" class="contact-link email-link">
+            <i class="icon-email"></i>
+            <span>{{ profileData.email }}</span>
+          </a>
+          <a [href]="profileData.linkedIn" target="_blank" class="contact-link linkedin-link">
+            <i class="icon-linkedin"></i>
+            <span>LinkedIn Profile</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlights-section">
+    <div class="highlight-cards">
+      <div class="highlight-card">
+        <h3>🧬 Research Focus</h3>
+        <p>Gut microbiome–food interactions and functional food development</p>
+      </div>
+      <div class="highlight-card">
+        <h3>🎓 Education</h3>
+        <p>Ph.D. in Food Science and Technology from Nanyang Technological University</p>
+      </div>
+      <div class="highlight-card">
+        <h3>🌏 Experience</h3>
+        <p>International research experience in Singapore, Korea, and Vietnam</p>
+      </div>
+    </div>
+  </div>
+</div>

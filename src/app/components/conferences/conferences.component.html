@@ -1,0 +1,52 @@
+<div class="conferences-container">
+  <div class="section-header">
+    <h1>🎤 Conferences & Presentations</h1>
+    <p class="section-description">Scientific presentations at national and international conferences</p>
+  </div>
+
+  <div class="presentations-sections">
+    <!-- Oral Presentations -->
+    <div class="presentation-section">
+      <h2 class="subsection-title">
+        <span class="subsection-icon">🎙️</span>
+        Oral Presentations
+      </h2>
+
+      <div class="presentations-list">
+        <div *ngFor="let presentation of oralPresentations" class="presentation-item oral">
+          <div class="presentation-year">{{ presentation.year }}</div>
+          <div class="presentation-content">
+            <h3 class="presentation-title">{{ presentation.title }}</h3>
+            <div class="presentation-details">
+              <p class="conference-name">{{ presentation.conference }}</p>
+              <p class="conference-location">📍 {{ presentation.location }}</p>
+            </div>
+            <p class="presentation-description">{{ presentation.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Poster Presentations -->
+    <div class="presentation-section">
+      <h2 class="subsection-title">
+        <span class="subsection-icon">📋</span>
+        Poster Presentations
+      </h2>
+
+      <div class="presentations-list">
+        <div *ngFor="let presentation of posterPresentations" class="presentation-item poster">
+          <div class="presentation-year">{{ presentation.year }}</div>
+          <div class="presentation-content">
+            <h3 class="presentation-title">{{ presentation.title }}</h3>
+            <div class="presentation-details">
+              <p class="conference-name">{{ presentation.conference }}</p>
+              <p class="conference-location">📍 {{ presentation.location }}</p>
+            </div>
+            <p class="presentation-description">{{ presentation.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

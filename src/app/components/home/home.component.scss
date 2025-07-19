@@ -1,0 +1,283 @@
+/* Mobile First Base Styles */
+.home-container {
+  padding: 1rem;
+  margin: 0;
+  background: linear-gradient(135deg, var(--soft-white) 0%, var(--warm-beige) 100%);
+  border-radius: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-section {
+  margin-bottom: 2rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.profile-image {
+  order: 1;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-green);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(76, 175, 80, 0.4);
+  }
+}
+
+.hero-text {
+  order: 2;
+  width: 100%;
+}
+
+.full-name {
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--deep-green), var(--primary-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.professional-title {
+  font-size: 1.3rem;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.introduction {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--primary-green);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-green), var(--deep-green));
+    transition: left 0.3s ease;
+    z-index: 0;
+  }
+
+  &:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+
+    &::before {
+      left: 0;
+    }
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.icon-email::before {
+  content: "✉";
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-linkedin::before {
+  content: "💼";
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.highlights-section {
+  margin-top: 3rem;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.highlight-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--light-green-bg);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, var(--primary-green), var(--lime-accent));
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(46, 125, 50, 0.2);
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    color: var(--deep-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: var(--text-gray);
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet Enhancements */
+@media (min-width: 481px) {
+  .home-container {
+    padding: 1.5rem;
+  }
+
+  .profile-photo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .full-name {
+    font-size: 2.2rem;
+  }
+
+  .professional-title {
+    font-size: 1.2rem;
+  }
+
+  .introduction {
+    font-size: 1rem;
+  }
+
+  .highlight-card p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 769px) {
+  .home-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.1);
+  }
+
+  .hero-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+  }
+
+  .profile-image {
+    order: 0;
+    flex-shrink: 0;
+  }
+
+  .hero-text {
+    order: 0;
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .profile-photo {
+    width: 250px;
+    height: 250px;
+  }
+
+  .full-name {
+    font-size: 2.5rem;
+  }
+
+  .professional-title {
+    font-size: 1.3rem;
+  }
+
+  .introduction {
+    font-size: 1.1rem;
+  }
+
+  .hero-section {
+    margin-bottom: 3rem;
+  }
+
+  .highlight-card p {
+    font-size: 1rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .hero-content {
+    gap: 4rem;
+  }
+
+  .profile-photo {
+    width: 280px;
+    height: 280px;
+  }
+
+  .full-name {
+    font-size: 2.8rem;
+  }
+}

@@ -1,0 +1,32 @@
+<section id="publications" class="section-wrapper">
+  <div class="section-header">
+    <h2>Selected Publications</h2>
+    <div class="header-decoration"></div>
+  </div>
+  <div class="section-content">
+    <div class="publications-list">
+      <div class="publication-item" *ngFor="let pub of publications; let i = index">
+        <div class="publication-year">
+          {{ pub.year }}
+        </div>
+        <div class="publication-content">
+          <h3 class="publication-title">"{{ pub.title }}"</h3>
+          <p class="publication-authors">{{ pub.authors }}</p>
+          <p class="publication-journal"><em>{{ pub.journal }}</em></p>
+          <div class="publication-actions">
+
+            <a *ngIf="pub.url" [href]="pub.url" target="_blank" class="url-link">
+              Read Article
+            </a>
+            <a *ngIf="pub.youtube" [href]="pub.youtube" target="_blank" class="youtube-link">
+              📺 Watch Video
+            </a>
+          </div>
+          <div class="publication-tags">
+            <span class="tag" *ngFor="let tag of pub.tags">{{ tag }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

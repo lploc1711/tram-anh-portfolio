@@ -1,0 +1,103 @@
+/* Mobile First Base Styles */
+.main-content-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  min-height: 100vh;
+  padding-top: 80px; /* Space for mobile menu button */
+}
+
+.content-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  overflow-y: auto;
+  visibility: hidden;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.content-section.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+  visibility: visible;
+  z-index: 1;
+}
+
+.section-content {
+  padding: 1rem;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile-optimized scrollbar */
+.content-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content-section::-webkit-scrollbar-track {
+  background: var(--light-green-bg);
+  border-radius: 3px;
+}
+
+.content-section::-webkit-scrollbar-thumb {
+  background: var(--primary-green);
+  border-radius: 3px;
+}
+
+.content-section::-webkit-scrollbar-thumb:hover {
+  background: var(--deep-green);
+}
+
+/* Tablet Enhancements */
+@media (min-width: 481px) {
+  .section-content {
+    padding: 1.5rem;
+  }
+
+  .content-section::-webkit-scrollbar {
+    width: 7px;
+  }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 769px) {
+  .main-content-container {
+    padding-top: 0;
+  }
+
+  .section-content {
+    padding: 2rem;
+  }
+
+  .content-section {
+    transform: translateX(20px);
+  }
+
+  .content-section::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .content-section::-webkit-scrollbar-track {
+    border-radius: 4px;
+  }
+
+  .content-section::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .section-content {
+    padding: 2.5rem;
+  }
+}

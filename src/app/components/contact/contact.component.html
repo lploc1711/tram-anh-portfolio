@@ -1,0 +1,66 @@
+<section id="contact" class="section-wrapper">
+  <div class="section-header">
+    <h2>📞 Contact</h2>
+    <div class="header-decoration"></div>
+  </div>
+  <div class="section-content">
+    <div class="contact-container">
+      <div class="contact-info-section">
+        <div class="contact-info-header">
+          <h3>Get in Touch</h3>
+          <p>I'm always interested in collaborating on innovative food science and biotechnology projects, discussing research opportunities, and exploring potential partnerships.</p>
+        </div>
+
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-text">
+              <strong>Email</strong>
+              <p><a [href]="'mailto:' + contactInfo.email">{{ contactInfo.email }}</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-icon">�</div>
+            <div class="contact-text">
+              <strong>Phone</strong>
+              <p><a [href]="'tel:' + contactInfo.phone">{{ contactInfo.phone }}</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-icon">💼</div>
+            <div class="contact-text">
+              <strong>LinkedIn</strong>
+              <p><a [href]="contactInfo.linkedIn" target="_blank">{{ contactInfo.linkedInDisplay }}</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-icon">🏛️</div>
+            <div class="contact-text">
+              <strong>Institution</strong>
+              <p>Nanyang Technological University<br>Food Science and Technology Programme<br>Singapore</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a [href]="'mailto:' + contactInfo.email" class="social-link email">
+            <div class="social-icon-wrapper">
+              <span class="social-icon">✉</span>
+            </div>
+            <span>Email</span>
+          </a>
+          <a [href]="contactInfo.linkedIn" target="_blank" class="social-link linkedin">
+            <div class="social-icon-wrapper">
+              <span class="social-icon">💼</span>
+            </div>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
