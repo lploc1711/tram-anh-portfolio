@@ -1,3 +1,14 @@
+:root {
+  --primary-green: #4CAF50;
+  --deep-green: #2E7D32;
+  --lime-accent: #C0CA33;
+  --warm-beige: #FFF8E1;
+  --soft-white: #FAFAFA;
+  --earth-brown: #6D4C41;
+  --text-gray: #616161;
+  --light-green-bg: #E8F5E9;
+}
+
 /* Mobile First Base Styles */
 .home-container {
   padding: 1rem;
@@ -279,5 +290,187 @@
 
   .full-name {
     font-size: 2.8rem;
+  }
+}
+
+/* About Section Styles */
+.about-section {
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  animation: fadeInUp 0.8s ease-out;
+  background: linear-gradient(135deg, var(--soft-white) 0%, var(--light-green-bg) 100%);
+  border-radius: 16px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary-green), var(--deep-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .header-decoration {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary-green), var(--lime-accent));
+      border-radius: 3px;
+      margin: 0 auto;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 15px;
+        height: 8px;
+        background: var(--lime-accent);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .section-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .bio-section, .background-section, .goals-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-green);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--deep-green);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    p {
+      line-height: 1.7;
+      color: var(--text-gray);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+  }
+
+  .goals-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+
+    li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: var(--text-gray);
+
+      &::before {
+        content: '🎯';
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    .highlight-category {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(76, 175, 80, 0.15);
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--deep-green);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          padding: 0.5rem 0;
+          color: var(--text-gray);
+          border-bottom: 1px solid #f0f0f0;
+          position: relative;
+          padding-left: 1.5rem;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .about-section {
+    padding: 3rem 2rem;
+
+    .highlights-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-section {
+    padding: 4rem 3rem;
+
+    .highlights-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+    }
   }
 }

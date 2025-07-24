@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationService } from '../../services/navigation.service';
 import { HomeComponent } from '../home/home.component';
-import { AboutComponent } from '../about/about.component';
 import { EducationComponent } from '../education/education.component';
 import { ResearchComponent } from '../research/research.component';
 import { PublicationsComponent } from '../publications/publications.component';
@@ -17,7 +16,6 @@ import { ContactComponent } from '../contact/contact.component';
   imports: [
     CommonModule,
     HomeComponent,
-    AboutComponent,
     EducationComponent,
     ResearchComponent,
     PublicationsComponent,

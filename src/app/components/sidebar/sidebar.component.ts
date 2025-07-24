@@ -15,13 +15,12 @@ export class SidebarComponent {
   profileData = {
     name: 'Dr. Anh Le Ngoc Tram',
     title: 'Ph.D. in Food Science and Technology',
-    subtitle: ['Research Scientist', 'Gut Microbiome - Food Interactions'],
+    subtitle: ['Research Scientist'],
     imageUrl: 'assets\\images\\ta_avatar.jpg'
   };
 
   navigationItems = [
     { label: 'Home', section: 'home' as SectionType },
-    { label: 'About', section: 'about' as SectionType },
     { label: 'Education', section: 'education' as SectionType },
     { label: 'Research', section: 'research' as SectionType },
     { label: 'Publications', section: 'publications' as SectionType },
