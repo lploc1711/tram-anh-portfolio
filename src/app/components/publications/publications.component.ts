@@ -12,6 +12,17 @@ interface Publication {
   youtube?: string;
 }
 
+interface Patent {
+  authors: string;
+  year: number;
+  month: string;
+  title: string;
+  description: string;
+  managementNumber: string;
+  referenceNumber: string;
+  tags: string[];
+}
+
 @Component({
   selector: 'app-publications',
   standalone: true,
@@ -104,11 +115,33 @@ export class PublicationsComponent {
     }
   ];
 
+  patents: Patent[] = [
+    {
+      authors: 'Seemi Tasnim Alam, Le, Tram Anh Ngoc, Jin-Soo Park, Hak Cheol Kwon, Kyungsu Kang',
+      year: 2019,
+      month: 'November',
+      title: 'Composite for photodynamic reaction to reduce and kill gram positive and gram negative bacteria, and antimicrobial composition, sterilizing composition and sterilization method using the same',
+      description: '그람 양성균 및 그람 음성균의 감소 및 사멸을 위한 광역학 반응용 복합조성물, 및 이를 이용한 항균 조성물, 살균 조성물 및 살균방법',
+      managementNumber: 'K10360',
+      referenceNumber: 'PN129202KR',
+      tags: ['Photodynamic Reaction', 'Antimicrobial', 'Sterilization', 'Patent']
+    }
+  ];
+
   getJournalIcon(journal: string): string {
     if (journal.includes('Food')) return '🍎';
     if (journal.includes('Chemistry')) return '🧪';
     if (journal.includes('Radical')) return '⚛️';
     if (journal.includes('Agriculture')) return '🌾';
-    return '📄';
+    if (journal.includes('Visualized')) return '�';
+    if (journal.includes('Pharmaceutics')) return '💊';
+    return '�📄';
+  }
+
+  getYearRange(): string {
+    const years = this.publications.map(pub => pub.year);
+    const minYear = Math.min(...years);
+    const maxYear = Math.max(...years);
+    return `${minYear}-${maxYear}`;
   }
 }

@@ -2,22 +2,39 @@
   <div class="section-header">
     <h1>💡 Skills & Expertise</h1>
     <p class="section-description">Technical competencies across food science, molecular biology, and analytical chemistry</p>
+    <div class="skills-summary">
+      <div class="summary-stat">
+        <span class="stat-number">{{ skillCategories.length }}</span>
+        <span class="stat-label">Skill Categories</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-number">{{ getTotalSkills() }}</span>
+        <span class="stat-label">Technical Skills</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-number">{{ getAverageSkillsPerCategory() }}</span>
+        <span class="stat-label">Avg per Category</span>
+      </div>
+    </div>
   </div>
 
   <div class="skills-grid">
     <article *ngFor="let category of skillCategories; trackBy: trackByTitle" class="skill-category">
       <header class="category-header">
-        <div class="category-icon" [attr.aria-label]="category.title + ' icon'">
-          {{ category.icon }}
+        <div class="category-icon">{{ category.icon }}</div>
+        <div class="category-info">
+          <h3 class="category-title">{{ category.title }}</h3>
+          <div class="category-stats">
+            <span class="skill-count">{{ category.skills.length }} skills</span>
+          </div>
         </div>
-        <h3 class="category-title">{{ category.title }}</h3>
       </header>
 
       <div class="skills-list" role="list">
         <span *ngFor="let skill of category.skills; trackBy: trackBySkill"
               class="skill-tag"
               role="listitem"
-              [attr.title]="skill">
+              [title]="skill">
           {{ skill }}
         </span>
       </div>

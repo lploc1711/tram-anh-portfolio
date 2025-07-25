@@ -2,9 +2,34 @@
   <div class="hero-section">
     <div class="hero-content">
       <div class="hero-text">
-        <h1 class="full-name">{{ profileData.fullName }}</h1>
-        <h2 class="professional-title">{{ profileData.title }}</h2>
+        <div class="name-section">
+          <h1 class="full-name">{{ profileData.fullName }}</h1>
+          <div class="title-wrapper">
+            <span class="degree-icon">🎓</span>
+            <h2 class="professional-title">{{ profileData.title }}</h2>
+          </div>
+        </div>
         <p class="introduction">{{ profileData.introduction }}</p>
+
+        <!-- Hero Statistics -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-value">5+</div>
+            <div class="stat-label">Years Research</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Countries</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Degrees</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">6+</div>
+            <div class="stat-label">Research Areas</div>
+          </div>
+        </div>
 
         <div class="contact-links">
           <a [href]="'mailto:' + profileData.email" class="contact-link email-link">
@@ -23,64 +48,49 @@
   <!-- About Section -->
   <section id="about" class="about-section">
     <div class="section-header">
-      <h2>🧪 About Me</h2>
+      <h2> About Me</h2>
       <div class="header-decoration"></div>
+      <p class="section-subtitle">Passionate researcher bridging traditional knowledge with modern biotechnology</p>
     </div>
     <div class="section-content">
-      <div class="bio-section">
-        <h3>Professional Background</h3>
-        <p class="intro-text">{{ aboutText }}</p>
-      </div>
-
-      <div class="background-section">
-        <h3>Personal Journey</h3>
-        <p class="background-text">{{ personalBackground }}</p>
-      </div>
-
-      <div class="goals-section">
-        <h3>Research Goals & Vision</h3>
-        <p class="goals-intro">My scientific goals center on bridging the gap between traditional food knowledge and modern biotechnology to address global health challenges. I aim to:</p>
-        <ul class="goals-list">
-          <li>Develop innovative probiotic delivery systems that survive processing and storage conditions</li>
-          <li>Create functional foods from agricultural waste streams to promote sustainability</li>
-          <li>Investigate microbiome-food interactions to design personalized nutrition solutions</li>
-          <li>Translate laboratory discoveries into practical applications that benefit communities worldwide</li>
-        </ul>
-        <p class="goals-conclusion">Through my research, I hope to contribute to a future where food technology serves both human health and environmental sustainability.</p>
-      </div>
-
-      <div class="highlights-grid">
-        <div class="highlight-category">
-          <h3>🧬 Research Focus</h3>
-          <ul>
-            <li>Gut Microbiome Research</li>
-            <li>Food-Microbiome Interactions</li>
-            <li>Probiotic Encapsulation</li>
-            <li>Functional Food Development</li>
-            <li>Agricultural Waste Valorization</li>
-          </ul>
+      <div class="about-grid">
+        <div class="bio-section">
+          <div class="section-card">
+            <div class="card-header">
+              <span class="card-icon">👨‍🔬</span>
+              <h3>Professional Background</h3>
+            </div>
+            <p class="intro-text">{{ aboutText }}</p>
+          </div>
         </div>
 
-        <div class="highlight-category">
-          <h3>🔬 Technical Expertise</h3>
-          <ul>
-            <li>Lactic Acid Bacteria Cultivation</li>
-            <li>Food Preservation Technologies</li>
-            <li>Gut Permeability Analysis</li>
-            <li>Byproduct Upcycling</li>
-            <li>Fermentation Optimization</li>
-          </ul>
+        <div class="background-section">
+          <div class="section-card">
+            <div class="card-header">
+              <span class="card-icon">🌱</span>
+              <h3>Personal Journey</h3>
+            </div>
+            <p class="background-text">{{ personalBackground }}</p>
+          </div>
         </div>
 
-        <div class="highlight-category">
-          <h3>🌏 International Experience</h3>
-          <ul>
-            <li>Singapore - NTU Ph.D. Research</li>
-            <li>Korea - KIST & GWNU Studies</li>
-            <li>Vietnam - Can Tho University</li>
-            <li>Cross-cultural Research</li>
-            <li>Collaborative Projects</li>
-          </ul>
+        <div class="goals-section">
+          <div class="section-card">
+            <div class="card-header">
+              <span class="card-icon">🎯</span>
+              <h3>Research Goals & Vision</h3>
+            </div>
+            <p class="goals-intro">My scientific goals center on bridging the gap between traditional food knowledge and modern biotechnology to address global health challenges. I aim to:</p>
+            <ul class="goals-list">
+              <li *ngFor="let goal of goals; let i = index" [attr.data-index]="i">
+                <span class="goal-icon">🔸</span>
+                {{ goal }}
+              </li>
+            </ul>
+            <div class="goals-conclusion-wrapper">
+              <p class="goals-conclusion">Through my research, I hope to contribute to a future where food technology serves both human health and environmental sustainability.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

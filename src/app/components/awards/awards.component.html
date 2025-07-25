@@ -2,13 +2,27 @@
   <header class="section-header">
     <h1>🏅 Awards & Scholarships</h1>
     <p class="section-description">Recognition for excellence in research and academic achievements</p>
+    <div class="awards-summary">
+      <div class="summary-stat">
+        <span class="stat-number">{{ awards.length }}</span>
+        <span class="stat-label">Total Awards</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-number">{{ getScholarshipCount() }}</span>
+        <span class="stat-label">Scholarships</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-number">{{ getAwardCount() }}</span>
+        <span class="stat-label">Research Awards</span>
+      </div>
+    </div>
   </header>
 
   <div class="awards-timeline">
     <article *ngFor="let award of awards; trackBy: trackByFn" class="award-item">
       <!-- Desktop Year (hidden on mobile/tablet) -->
       <div class="desktop-year">
-        <span class="award-year">{{ award.year }}</span>
+        <span class="award-year" [class.year-range]="award.year.includes(' - ')">{{ formatYear(award.year) }}</span>
       </div>
 
       <div class="award-card">
@@ -16,7 +30,7 @@
           <div class="award-icon-year">
             <span class="award-icon" [attr.aria-label]="award.type + ' icon'">{{ getIconForType(award.type) }}</span>
             <!-- Mobile/Tablet Year (hidden on desktop) -->
-            <span class="award-year">{{ award.year }}</span>
+            <span class="award-year" [class.year-range]="award.year.includes(' - ')">{{ formatYear(award.year) }}</span>
           </div>
           <div class="award-type-badge" [class]="award.type">
             {{ award.type | titlecase }}
@@ -26,7 +40,6 @@
         <div class="award-content">
           <h3 class="award-title">{{ award.title }}</h3>
           <p class="award-organization">{{ award.organization }}</p>
-          <p class="award-description">{{ award.description }}</p>
         </div>
       </div>
     </article>

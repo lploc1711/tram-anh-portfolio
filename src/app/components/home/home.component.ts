@@ -10,12 +10,20 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
   profileData = {
-    fullName: 'Dr. Le Ngoc Tram Anh',
+    fullName: 'Dr. Ngoc Tram Anh Le',
     title: 'Research Scientist – Ph.D. in Food Science and Technology',
     introduction: "I'm a passionate researcher in gut microbiome, food science, and human health.",
     email: 'lengoctr001@e.ntu.edu.sg',
     linkedIn: 'https://linkedin.com/in/ngoc-tram-anh-le-873541150'
   };
+
+  // goals
+  goals = [
+    'Develop innovative probiotic delivery systems that survive processing and storage conditions',
+    'Create functional foods from agricultural waste streams to promote sustainability',
+    'Investigate microbiome-food interactions to design personalized nutrition solutions',
+    'Translate laboratory discoveries into practical applications that benefit communities worldwide'
+  ];
 
   aboutText = `I am a Vietnamese-born research scientist with a passionate interest in gut microbiome–food interactions and their impact on human health. My research journey has taken me across multiple countries, giving me strong international research experience in Singapore, Korea, and Vietnam. I specialize in exploring how food components interact with our gut microbiome to influence health outcomes, combining traditional food science knowledge with cutting-edge biotechnology.
 

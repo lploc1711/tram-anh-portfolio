@@ -1,42 +1,81 @@
 /* Mobile First Base Styles */
 .awards-container {
-  padding: 1rem;
+  padding: 2rem 1rem;
   margin: 0;
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp 0.8s ease-out;
   min-height: 100vh;
+  background: linear-gradient(135deg, var(--soft-white) 0%, var(--light-green-bg) 100%);
+  border-radius: 20px;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--deep-green);
     margin-bottom: 1rem;
-    font-weight: 700;
+    font-weight: 800;
     position: relative;
+    background: linear-gradient(135deg, var(--primary-green), var(--deep-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 
     &::after {
       content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: -15px;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
+      width: 80px;
+      height: 4px;
       background: linear-gradient(135deg, var(--primary-green), var(--lime-accent));
-      border-radius: 2px;
+      border-radius: 3px;
     }
   }
 
   .section-description {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-gray);
-    max-width: 100%;
-    margin: 0 auto;
-    line-height: 1.6;
-    padding: 0 0.5rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+    padding: 0 1rem;
+    font-style: italic;
+  }
+}
+
+.awards-summary {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+
+  .summary-stat {
+    text-align: center;
+
+    .stat-number {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
   }
 }
 
@@ -55,28 +94,41 @@
 }
 
 .award-card {
-  background: var(--soft-white);
-  border-radius: 16px;
-  border: 1px solid var(--light-green-bg);
-  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  box-shadow: 0 8px 32px rgba(76, 175, 80, 0.15);
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-left: 5px solid var(--primary-green);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 6px solid var(--primary-green);
+  backdrop-filter: blur(10px);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-green), var(--lime-accent), var(--primary-green));
+  }
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(76, 175, 80, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(76, 175, 80, 0.25);
     border-left-color: var(--lime-accent);
   }
 }
 
 .award-header {
-  background: linear-gradient(135deg, var(--light-green-bg), var(--soft-white));
-  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(232, 245, 233, 0.8), rgba(250, 250, 250, 0.9));
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--light-green-bg);
+  border-bottom: 2px solid var(--light-green-bg);
+  backdrop-filter: blur(5px);
 }
 
 .award-icon-year {
@@ -86,16 +138,22 @@
 }
 
 .award-icon {
-  font-size: 2rem;
+  font-size: 2.2rem;
   background: linear-gradient(135deg, var(--primary-green), var(--deep-green));
   color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
+  width: 55px;
+  height: 55px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+  }
 }
 
 .award-year {
@@ -107,6 +165,22 @@
   border-radius: 20px;
   border: 2px solid var(--primary-green);
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+  transition: all 0.3s ease;
+
+  &.year-range {
+    background: linear-gradient(135deg, var(--primary-green), var(--deep-green));
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--lime-accent);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    }
+  }
 }
 
 .award-type-badge {
@@ -126,32 +200,41 @@
     background: linear-gradient(135deg, var(--primary-green), var(--deep-green));
     color: white;
   }
+
+  &.achievement {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+    color: white;
+  }
 }
 
 .award-content {
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 .award-title {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--deep-green);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
 }
 
 .award-organization {
   font-size: 1rem;
   color: var(--primary-green);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 1rem;
   font-style: italic;
+  background: linear-gradient(135deg, var(--primary-green), var(--deep-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .award-description {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-gray);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -170,20 +253,29 @@
 /* Tablet Styles */
 @media screen and (min-width: 768px) {
   .awards-container {
-    padding: 2rem;
+    padding: 3rem 2rem;
   }
 
   .section-header {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
 
     .section-description {
-      font-size: 1.1rem;
-      max-width: 600px;
+      font-size: 1.2rem;
+      max-width: 700px;
       padding: 0;
+    }
+  }
+
+  .awards-summary {
+    gap: 3rem;
+    padding: 2rem;
+
+    .summary-stat .stat-number {
+      font-size: 2.5rem;
     }
   }
 
@@ -247,7 +339,7 @@
     &::before {
       content: '';
       position: absolute;
-      left: 100px;
+      left: 120px;
       top: 0;
       bottom: 0;
       width: 3px;
@@ -265,7 +357,7 @@
     &::before {
       content: '';
       position: absolute;
-      left: 91px;
+      left: 111px;
       top: 30px;
       width: 20px;
       height: 20px;
@@ -283,14 +375,33 @@
   }
 
   .desktop-year {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-shrink: 0;
-    width: 80px;
-    text-align: right;
+    width: 120px;
+    text-align: center;
     margin-top: 1rem;
-  }
 
-  .award-header {
+    .award-year {
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.8rem 1rem;
+      white-space: nowrap;
+      transform: rotate(0deg);
+
+      &.year-range {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+        writing-mode: horizontal-tb;
+        text-align: center;
+        min-width: auto;
+        white-space: nowrap;
+        display: block;
+      }
+    }
+  }  .award-header {
     .award-year {
       display: none; /* Hide mobile year in desktop timeline */
     }
@@ -317,5 +428,21 @@
 @media (max-width: 768px) {
   .award-icon {
     display: none; /* Hidden on mobile */
+  }
+
+  .awards-summary {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+
+    .summary-stat {
+      .stat-number {
+        font-size: 1.8rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+      }
+    }
   }
 }

@@ -11,70 +11,61 @@ import { CommonModule } from '@angular/common';
 export class ConferencesComponent {
   oralPresentations = [
     {
-      year: '2023',
-      title: 'Utilization of Jackfruit Seed Waste for Functional Food Development',
-      conference: 'European Federation of Food Science and Technology (EFFoST)',
-      location: 'Valencia, Spain',
-      description: 'Presented research on sustainable food waste valorization'
-    },
-    {
-      year: '2023',
-      title: 'Upcycling Avocado Seeds: Novel Approaches for Food Preservation',
-      conference: 'EFFoST International Conference',
-      location: 'Valencia, Spain',
-      description: 'Innovative methods for converting agricultural waste into value-added products'
-    },
-    {
       year: '2019',
-      title: 'Effects of Hypericin on Caenorhabditis elegans Longevity',
-      conference: 'Korean Society for Applied Biological Chemistry (KSABC)',
-      location: 'Seoul, Korea',
-      description: 'Investigation of natural compound effects on model organism lifespan'
+      title: 'Biophotonic Effect of Hypericin in Caenorhabditis elegans',
+      authors: 'Le, Tram Anh Ngoc and Kyungsu Kang',
+      conference: '2019 International Symposium and Annual Meeting of the KSABC',
+
     },
     {
-      year: '2018',
-      title: 'Diindolylmethane Studies on C. elegans Health and Longevity',
-      conference: 'KSABC Annual Conference',
-      location: 'Busan, Korea',
-      description: 'Exploring bioactive compounds for health promotion'
+      year: '2016',
+      title: 'Isolation and utilisation of Lactic Acid Bacteria for fermentation process of papaya juice',
+      titleVietnamese: 'Phân lập và sử dụng vi khuẩn acid lactic trong quá trình lên men nước đu đủ',
+      authors: 'Le Ngoc Tram Anh, Dang Tri Trung, Nguyen Ngoc Thanh, Huynh Xuan Phong, Bui Hoang Dang Long, Ngo Thi Phuong Dung',
+      conference: 'Young Scientist Symposium at Can Tho University 2016',
+      conferenceVietnamese: 'Hội nghị nhà khoa học trẻ Đại học Cần Thơ 2016',
+
     }
   ];
 
   posterPresentations = [
     {
-      year: '2024',
-      title: 'Gut Microbiome Modulation through Fermented Food Interventions',
-      conference: 'International Conference on Food Microbiology',
-      location: 'Singapore',
-      description: 'Research on microbiome-food interactions'
-    },
-    {
       year: '2023',
-      title: 'Probiotic Encapsulation Techniques for Enhanced Stability',
-      conference: 'Asia-Pacific Food Science Conference',
-      location: 'Bangkok, Thailand',
-      description: 'Advanced delivery systems for probiotic organisms'
-    },
-    {
-      year: '2022',
-      title: 'Functional Properties of Fruit Processing Byproducts',
-      conference: 'World Food Science Congress',
-      location: 'Virtual Conference',
-      description: 'Sustainable utilization of agricultural waste streams'
+      month: 'November',
+      title: 'Characterization and Exploration of Utilizing Starch from Jackfruit Seeds, Avocado Seeds, and Durian Seeds for Lactic Acid Generation',
+      authors: 'Le, Tram Anh Ngoc, and Chen Wei Ning',
+      conference: 'The 37th The European Federation of Food Science and Technology (EFFoST) International Conference',
+
     },
     {
       year: '2019',
-      title: 'Thermotolerant Lactobacillus plantarum for Tropical Applications',
-      conference: 'Asian Conference on Food and Nutrition',
-      location: 'Ho Chi Minh City, Vietnam',
-      description: 'Development of climate-adapted probiotic strains'
+      month: 'January',
+      title: 'Effects of 3,3′-Diindolylmethane on the Gut Health in Human Intestinal Cells and Caenorhabditis elegans',
+      authors: 'Le, Tram Anh Ngoc, Joo Yeon Kim, So Young Lee, Seemi Tasnim Alam, Cheol-Ho Pan and Kyungsu Kang',
+      conference: '24th Korean Society for Molecular and Cellular Biology [KSMCB]– Caenorhabditis elegans division',
+
     },
     {
       year: '2018',
-      title: 'Light-induced Effects of Hypericin in Nematode Models',
-      conference: 'International Photobiology Congress',
-      location: 'Incheon, Korea',
-      description: 'Photodynamic effects of natural compounds'
+      month: 'June',
+      title: '3,3′-Diindolylmethane Improves Gut Health in Human Intestinal Cells and Caenorhabditis elegans Model',
+      authors: 'Le, Tram Anh Ngoc, Kyungsu Kang',
+      conference: '2018 International Symposium and Annual Meeting of the Korean Society for Applied Biological Chemistry [KSABC]: Applied Biological Chemistry for the Fourth Industrial Revolution',
+
     }
   ];
+
+  getTotalPresentations(): number {
+    return this.oralPresentations.length + this.posterPresentations.length;
+  }
+
+  getYearRange(): string {
+    const allYears = [
+      ...this.oralPresentations.map(p => parseInt(p.year)),
+      ...this.posterPresentations.map(p => parseInt(p.year))
+    ];
+    const minYear = Math.min(...allYears);
+    const maxYear = Math.max(...allYears);
+    return `${minYear}–${maxYear}`;
+  }
 }

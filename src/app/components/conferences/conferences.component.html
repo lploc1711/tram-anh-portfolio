@@ -2,6 +2,24 @@
   <div class="section-header">
     <h1>🎤 Conferences & Presentations</h1>
     <p class="section-description">Scientific presentations at national and international conferences</p>
+    <div class="conferences-summary">
+      <div class="summary-stat">
+        <span class="stat-number">{{ getTotalPresentations() }}</span>
+        <span class="stat-label">Total Presentations</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-number">{{ oralPresentations.length }}</span>
+        <span class="stat-label">Oral Presentations</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-number">{{ posterPresentations.length }}</span>
+        <span class="stat-label">Poster Presentations</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-number">{{ getYearRange() }}</span>
+        <span class="stat-label">Years Active</span>
+      </div>
+    </div>
   </div>
 
   <div class="presentations-sections">
@@ -17,11 +35,18 @@
           <div class="presentation-year">{{ presentation.year }}</div>
           <div class="presentation-content">
             <h3 class="presentation-title">{{ presentation.title }}</h3>
+            <div class="presentation-title-vietnamese" *ngIf="presentation.titleVietnamese">
+              <em>{{ presentation.titleVietnamese }}</em>
+            </div>
+            <div class="presentation-authors">
+              <strong>Authors:</strong> {{ presentation.authors }}
+            </div>
             <div class="presentation-details">
               <p class="conference-name">{{ presentation.conference }}</p>
-              <p class="conference-location">📍 {{ presentation.location }}</p>
+              <p class="conference-name-vietnamese" *ngIf="presentation.conferenceVietnamese">
+                <em>{{ presentation.conferenceVietnamese }}</em>
+              </p>
             </div>
-            <p class="presentation-description">{{ presentation.description }}</p>
           </div>
         </div>
       </div>
@@ -36,14 +61,18 @@
 
       <div class="presentations-list">
         <div *ngFor="let presentation of posterPresentations" class="presentation-item poster">
-          <div class="presentation-year">{{ presentation.year }}</div>
+          <div class="presentation-year">
+            <span class="year-main">{{ presentation.year }}</span>
+            <span class="year-month" *ngIf="presentation.month">{{ presentation.month }}</span>
+          </div>
           <div class="presentation-content">
             <h3 class="presentation-title">{{ presentation.title }}</h3>
+            <div class="presentation-authors">
+              <strong>Authors:</strong> {{ presentation.authors }}
+            </div>
             <div class="presentation-details">
               <p class="conference-name">{{ presentation.conference }}</p>
-              <p class="conference-location">📍 {{ presentation.location }}</p>
             </div>
-            <p class="presentation-description">{{ presentation.description }}</p>
           </div>
         </div>
       </div>

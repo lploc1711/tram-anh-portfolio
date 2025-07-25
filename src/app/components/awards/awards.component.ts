@@ -11,53 +11,52 @@ import { CommonModule } from '@angular/common';
 export class AwardsComponent {
   awards = [
     {
-      year: '2020',
-      title: 'NTU Research Scholarship',
-      organization: 'Nanyang Technological University',
-      description: 'Full scholarship covering tuition and living expenses for Ph.D. studies',
+      year: '2020 - 2024',
+      title: 'NTU research scholarship',
+      organization: 'awarded by NTU',
       type: 'scholarship'
     },
     {
       year: '2020',
-      title: 'Top 100 Best Korean Research Award',
-      organization: 'Korean Scientific Community',
-      description: 'Recognition for outstanding research contribution',
+      title: 'The top 100 best Korean Research Award',
+      organization: 'Korean Research Community',
       type: 'award'
     },
     {
       year: '2018',
-      title: 'Best Research Presentation Award',
-      organization: 'Gangneung-Wonju National University',
-      description: 'Excellence in research presentation and findings',
+      title: 'The second prize of the best presentation',
+      organization: 'awarded by KIST',
       type: 'award'
     },
     {
       year: '2017',
-      title: 'Outstanding Research Achievement',
-      organization: 'Can Tho University',
-      description: 'Recognition for exceptional undergraduate research work',
+      title: 'Valedictorian of the course',
+      organization: 'awarded by Institute of Biotechnology Research and Development Youth Union of Can Tho University',
+      type: 'achievement'
+    },
+    {
+      year: '2017',
+      title: 'The consolation prize of the best research',
+      organization: 'awarded by Ministry of Science and Technology of Vietnam',
       type: 'award'
     },
     {
       year: '2016',
-      title: 'Best Poster Presentation',
-      organization: 'Korean Academic Conference',
-      description: 'Excellence in scientific poster presentation',
+      title: 'The first prize of the best research',
+      organization: 'awarded by Can Tho University',
+      type: 'award'
+    },
+    {
+      year: '2016',
+      title: 'The third prize of the best research',
+      organization: 'awarded by Can Tho University',
       type: 'award'
     },
     {
       year: '2015',
       title: 'Korean Government Exchange Scholarship',
-      organization: 'Government of South Korea',
-      description: 'Prestigious international exchange scholarship program',
+      organization: 'funded by NIIED',
       type: 'scholarship'
-    },
-    {
-      year: '2015',
-      title: 'Research Excellence Prize',
-      organization: 'Vietnam National University',
-      description: 'Outstanding performance in biotechnology research',
-      type: 'award'
     }
   ];
 
@@ -67,12 +66,42 @@ export class AwardsComponent {
         return '🎓';
       case 'award':
         return '🏆';
-      default:
+      case 'achievement':
         return '🏅';
+      default:
+        return '�️';
     }
   }
 
   trackByFn(index: number, item: any): any {
     return item.title || index;
+  }
+
+  getScholarshipCount(): number {
+    return this.awards.filter(award => award.type === 'scholarship').length;
+  }
+
+  getAwardCount(): number {
+    return this.awards.filter(award => award.type === 'award').length;
+  }
+
+  getAchievementCount(): number {
+    return this.awards.filter(award => award.type === 'achievement').length;
+  }
+
+  formatYear(year: string): string {
+    // Check if year contains a range (e.g., "2020 - 2024")
+    if (year.includes(' - ')) {
+      const [startYear, endYear] = year.split(' - ');
+      return `${startYear}–${endYear}`;
+    }
+    return year;
+  }
+
+  getYearLabel(year: string): string {
+    if (year.includes(' - ')) {
+      return 'Duration';
+    }
+    return 'Year';
   }
 }

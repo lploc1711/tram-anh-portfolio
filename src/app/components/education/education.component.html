@@ -2,28 +2,84 @@
   <div class="section-header">
     <h2>Education</h2>
     <div class="header-decoration"></div>
+    <p class="section-subtitle">Academic Journey & Research Excellence</p>
   </div>
+
+  <!-- Education Statistics -->
+  <div class="education-stats">
+    <div class="stat-card">
+      <div class="stat-icon">🎓</div>
+      <div class="stat-number">3</div>
+      <div class="stat-label">Degrees</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🔬</div>
+      <div class="stat-number">8+</div>
+      <div class="stat-label">Years of Study</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🌏</div>
+      <div class="stat-number">3</div>
+      <div class="stat-label">Countries</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📚</div>
+      <div class="stat-number">5+</div>
+      <div class="stat-label">Research Areas</div>
+    </div>
+  </div>
+
   <div class="section-content">
     <div class="education-timeline">
-      <div class="education-item" *ngFor="let edu of education; let i = index">
+      <div class="education-item" *ngFor="let edu of education; let i = index" [attr.data-index]="i">
         <div class="timeline-marker">
-          <div class="timeline-dot"></div>
+          <div class="timeline-dot">
+            <div class="degree-level">{{ getDegreeLevel(edu.degree) }}</div>
+          </div>
           <div class="timeline-line" *ngIf="i < education.length - 1"></div>
         </div>
         <div class="education-content">
           <div class="education-card">
             <div class="education-header">
-              <h3 class="degree">{{ edu.degree }}</h3>
+              <div class="degree-section">
+                <div class="degree-icon">{{ getDegreeIcon(edu.degree) }}</div>
+                <h3 class="degree">{{ edu.degree }}</h3>
+              </div>
               <span class="period">{{ edu.period }}</span>
             </div>
             <div class="institution-info">
-              <h4 class="institution">{{ edu.institution }}</h4>
-              <p class="location">📍 {{ edu.location }}</p>
-              <p class="additional-info" *ngIf="edu.additionalInfo">{{ edu.additionalInfo }}</p>
+              <h4 class="institution">
+                <span class="institution-icon">🏛️</span>
+                {{ edu.institution }}
+              </h4>
+              <p class="location">
+                <span class="location-icon">📍</span>
+                {{ edu.location }}
+              </p>
+              <p class="additional-info" *ngIf="edu.additionalInfo">
+                {{ edu.additionalInfo }}
+              </p>
+              <div class="highlights" *ngIf="edu.highlights">
+                <h5><span class="highlight-icon">✨</span> Key Achievements:</h5>
+                <ul>
+                  <li *ngFor="let highlight of edu.highlights">
+                    <span class="bullet-icon">🔬</span>
+                    {{ highlight }}
+                  </li>
+                </ul>
+              </div>
             </div>
+
             <div class="thesis-info">
-              <strong>Thesis:</strong>
+              <div class="thesis-header">
+                <span class="thesis-icon">📖</span>
+                <strong>Research Thesis</strong>
+              </div>
               <p class="thesis">{{ edu.thesis }}</p>
+              <p class="supervisor" *ngIf="edu.supervisor">
+                <span class="supervisor-icon">👨‍🏫</span>
+                <strong>Supervisor:</strong> {{ edu.supervisor }}
+              </p>
             </div>
           </div>
         </div>

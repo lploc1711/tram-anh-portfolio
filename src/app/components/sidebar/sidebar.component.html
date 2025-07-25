@@ -16,19 +16,20 @@
   </div>
 
   <nav class="navigation">
-    <button
+    <a
       *ngFor="let item of navigationItems"
-      (click)="onSectionClick(item.section)"
-      [class.active]="isActive(item.section)"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      (click)="onSectionClick(item.route)"
       class="nav-button">
       {{ item.label }}
-    </button>
+    </a>
   </nav>
 
   <div class="contact-info">
     <div class="contact-item">
       <span class="contact-label">Email:</span>
-      <span class="contact-value">lengoctr001@e.ntu.edu.sg</span>
+      <span class="contact-value">lengoctr001&#64;e.ntu.edu.sg</span>
     </div>
     <div class="contact-item">
       <span class="contact-label">Location:</span>

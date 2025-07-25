@@ -1,29 +1,99 @@
 <section id="publications" class="section-wrapper">
   <div class="section-header">
-    <h2>Selected Publications</h2>
+    <h2>📚 Selected Publications</h2>
     <div class="header-decoration"></div>
+    <p class="section-subtitle">Research contributions in food science, biotechnology, and health</p>
   </div>
+
   <div class="section-content">
+    <div class="publications-stats">
+      <div class="stat-item">
+        <span class="stat-number">{{ publications.length }}</span>
+        <span class="stat-label">Publications</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ patents.length }}</span>
+        <span class="stat-label">Patents</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ getYearRange() }}</span>
+        <span class="stat-label">Year Range</span>
+      </div>
+    </div>
+
     <div class="publications-list">
       <div class="publication-item" *ngFor="let pub of publications; let i = index">
+        <div class="publication-rank">
+          <span class="rank-number">#{{ i + 1 }}</span>
+        </div>
         <div class="publication-year">
-          {{ pub.year }}
+          <div class="year-badge">{{ pub.year }}</div>
+          <div class="journal-icon">{{ getJournalIcon(pub.journal) }}</div>
         </div>
         <div class="publication-content">
           <h3 class="publication-title">"{{ pub.title }}"</h3>
           <p class="publication-authors">{{ pub.authors }}</p>
-          <p class="publication-journal"><em>{{ pub.journal }}</em></p>
+          <p class="publication-journal">
+            <i class="journal-indicator"></i>
+            <em>{{ pub.journal }}</em>
+          </p>
           <div class="publication-actions">
-
+            <a *ngIf="pub.doi" [href]="'https://doi.org/' + pub.doi" target="_blank" class="doi-link">
+              <span class="action-icon">🔗</span> DOI
+            </a>
             <a *ngIf="pub.url" [href]="pub.url" target="_blank" class="url-link">
-              Read Article
+              <span class="action-icon">📖</span> Read Article
             </a>
             <a *ngIf="pub.youtube" [href]="pub.youtube" target="_blank" class="youtube-link">
-              📺 Watch Video
+              <span class="action-icon">📺</span> Watch Video
             </a>
           </div>
           <div class="publication-tags">
             <span class="tag" *ngFor="let tag of pub.tags">{{ tag }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Patents Section -->
+  <div class="section-header patents-header">
+    <h2>🏆 Patents</h2>
+    <div class="header-decoration patents-decoration"></div>
+    <p class="section-subtitle">Intellectual property and innovations</p>
+  </div>
+  <div class="section-content">
+    <div class="patents-list">
+      <div class="patent-item" *ngFor="let patent of patents; let i = index">
+        <div class="patent-badge">
+          <span class="badge-icon">🏅</span>
+          <span class="badge-text">PATENT</span>
+        </div>
+        <div class="patent-year">
+          <div class="month">{{ patent.month }}</div>
+          <div class="year">{{ patent.year }}</div>
+        </div>
+        <div class="patent-content">
+          <h3 class="patent-title">"{{ patent.title }}"</h3>
+          <p class="patent-description">{{ patent.description }}</p>
+          <p class="patent-authors">
+            <span class="authors-icon">👥</span>
+            {{ patent.authors }}
+          </p>
+          <div class="patent-details">
+            <div class="patent-detail">
+              <span class="detail-icon">📋</span>
+              <span class="detail-label">Management No:</span>
+              <span class="detail-value">{{ patent.managementNumber }}</span>
+            </div>
+            <div class="patent-detail">
+              <span class="detail-icon">🔢</span>
+              <span class="detail-label">Reference No:</span>
+              <span class="detail-value">{{ patent.referenceNumber }}</span>
+            </div>
+          </div>
+          <div class="patent-tags">
+            <span class="tag" *ngFor="let tag of patent.tags">{{ tag }}</span>
           </div>
         </div>
       </div>

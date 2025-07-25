@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationService, SectionType } from '../../services/navigation.service';
+import { Router, RouterModule } from '@angular/router';
+
+interface NavigationItem {
+  label: string;
+  route: string;
+}
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
@@ -13,39 +18,35 @@ export class SidebarComponent {
   isMobileMenuOpen = false;
 
   profileData = {
-    name: 'Dr. Anh Le Ngoc Tram',
+    name: 'Dr. Ngoc Tram Anh Le',
     title: 'Ph.D. in Food Science and Technology',
     subtitle: ['Research Scientist'],
     imageUrl: 'assets\\images\\ta_avatar.jpg'
   };
 
-  navigationItems = [
-    { label: 'Home', section: 'home' as SectionType },
-    { label: 'Education', section: 'education' as SectionType },
-    { label: 'Research', section: 'research' as SectionType },
-    { label: 'Publications', section: 'publications' as SectionType },
-    { label: 'Skills', section: 'skills' as SectionType },
-    { label: 'Awards', section: 'awards' as SectionType },
-    { label: 'Conferences', section: 'conferences' as SectionType },
-    { label: 'Contact', section: 'contact' as SectionType }
+  navigationItems: NavigationItem[] = [
+    { label: 'Home', route: '/home' },
+    { label: 'Education', route: '/education' },
+    { label: 'Working Experience', route: '/working-experience' },
+    { label: 'Publications', route: '/publications' },
+    { label: 'Skills', route: '/skills' },
+    { label: 'Awards', route: '/awards' },
+    { label: 'Conferences', route: '/conferences' },
+    { label: 'Contact', route: '/contact' }
   ];
 
-  constructor(private navigationService: NavigationService) {}
+  constructor(private router: Router) {}
 
-  get activeSection() {
-    return this.navigationService.getActiveSection();
-  }
-
-  onSectionClick(section: SectionType) {
-    this.navigationService.setActiveSection(section);
+  onSectionClick(route: string) {
+    this.router.navigate([route]);
     // Close mobile menu after navigation on mobile
     if (window.innerWidth <= 768) {
       this.isMobileMenuOpen = false;
     }
   }
 
-  isActive(section: SectionType): boolean {
-    return this.activeSection() === section;
+  isActive(route: string): boolean {
+    return this.router.url === route;
   }
 
   toggleMobileMenu() {
